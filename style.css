@@ -6,10 +6,16 @@
     border-radius: 5px;
     overflow: hidden;
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-areas: "header header"
+                         "aside main"
+                         "nav main"
+                         "footer footer";
+    grid-template-columns: 1fr 1.5fr;
+    grid-template-rows: 1fr 1fr 1.3fr;
 }
 header {
+    grid-area: header;
     width: 100%;
     background-color: blueviolet;
     display: flex;
@@ -18,14 +24,8 @@ header {
 header h1 {
     margin: auto;
 }
-.content {
-    width: 100%;
-    margin: 0;
-    background-color: yellowgreen;
-    display: flex;
-    flex: 9;
-}
-.content main {
+main {
+    grid-area: main;
     /* height: 100%;
     width: 60%; */
     background-color: brown;
@@ -34,33 +34,29 @@ header h1 {
     order: 1;
     flex: 1.5;
 }
-.content main h1 {
+main h1 {
     margin: auto;
 }
-.content .sidebar {
-    background-color: aqua;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-
-}
-.content .sidebar aside {
+aside {
+    grid-area: aside;
     background-color: rgb(226, 49, 117);
     flex: 1;
     display: flex;
 }
-.content .sidebar aside h1 {
+aside h1 {
     margin: auto;
 }
-.content .sidebar nav {
+nav {
+    grid-area: nav;
     background-color: dodgerblue;
     flex: 1.5;
     display: flex;
 }
-.content .sidebar nav h1 {
+nav h1 {
     margin: auto;
 }
 footer {
+    grid-area: footer;
     display: flex;
     background-color: violet;
     flex: 1;
